@@ -9,12 +9,12 @@
   <meta name="description" content="打开内核转发参数 123echo &#x27;net.ipv4.ip_forward&#x3D;1&#x27; &gt;&gt; &#x2F;etc&#x2F;sysctl.confecho &#x27;net.ipv6.conf.all.forwarding &#x3D; 1&#x27; &gt;&gt; &#x2F;etc&#x2F;sysctl.confsysctl -p  开启 nat 转发 firewall 12345firewall-cmd -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Firewalld 网关配置">
-<meta property="og:url" content="http://example.com/2022/07/17/firewalld_gateway/index.html">
+<meta property="og:url" content="http://example.com/2022/08/06/firewalld_gateway/index.html">
 <meta property="og:site_name" content="Rekey&#39;s Blogs">
 <meta property="og:description" content="打开内核转发参数 123echo &#x27;net.ipv4.ip_forward&#x3D;1&#x27; &gt;&gt; &#x2F;etc&#x2F;sysctl.confecho &#x27;net.ipv6.conf.all.forwarding &#x3D; 1&#x27; &gt;&gt; &#x2F;etc&#x2F;sysctl.confsysctl -p  开启 nat 转发 firewall 12345firewall-cmd -">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-07-17T12:18:27.000Z">
-<meta property="article:modified_time" content="2024-10-30T20:48:26.340Z">
+<meta property="article:published_time" content="2022-08-06T12:04:00.000Z">
+<meta property="article:modified_time" content="2024-10-30T20:54:31.922Z">
 <meta property="article:author" content="Rekey">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="firewalld">
@@ -76,8 +76,8 @@
       <div class="outer">
         <section id="main"><article id="post-firewalld_gateway" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/07/17/firewalld_gateway/" class="article-date">
-  <time class="dt-published" datetime="2022-07-17T12:18:27.000Z" itemprop="datePublished">2022-07-17</time>
+    <a href="/2022/08/06/firewalld_gateway/" class="article-date">
+  <time class="dt-published" datetime="2022-08-06T12:04:00.000Z" itemprop="datePublished">2022-08-06</time>
 </a>
     
   </div>
@@ -104,7 +104,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/07/17/firewalld_gateway/" data-id="cm2wcnj5z0001h6iodqe37t6q" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2022/08/06/firewalld_gateway/" data-id="cm2wcuwi20003mmiofcbl8iro" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -116,11 +116,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/03/22/linux_install_docker/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/11/15/docker_emby_inter_gpu/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          Linux 安装 docker
+          使用Docker安装Emby服务端并启用intel核显
         
       </div>
     </a>
@@ -143,7 +143,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/" rel="tag">debian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firewalld/" rel="tag">firewalld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/" rel="tag">debian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emby/" rel="tag">emby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firewalld/" rel="tag">firewalld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gpu/" rel="tag">gpu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intel/" rel="tag">intel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
     </div>
   </div>
 
@@ -153,7 +153,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/firewalld/" style="font-size: 10px;">firewalld</a> <a href="/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/network/" style="font-size: 10px;">network</a>
+      <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/emby/" style="font-size: 10px;">emby</a> <a href="/tags/firewalld/" style="font-size: 10px;">firewalld</a> <a href="/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/tags/gpu/" style="font-size: 10px;">gpu</a> <a href="/tags/intel/" style="font-size: 10px;">intel</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/network/" style="font-size: 10px;">network</a>
     </div>
   </div>
 
@@ -162,7 +162,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
     </div>
   </div>
 
@@ -175,7 +175,7 @@
       <ul>
         
           <li>
-            <a href="/2024/09/20/debian12_network/">Debian12 设置网卡优先级</a>
+            <a href="/2024/10/06/debian12_network/">Debian12 设置网卡优先级</a>
           </li>
         
           <li>
@@ -183,7 +183,11 @@
           </li>
         
           <li>
-            <a href="/2022/07/17/firewalld_gateway/">Firewalld 网关配置</a>
+            <a href="/2022/11/15/docker_emby_inter_gpu/">使用Docker安装Emby服务端并启用intel核显</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/06/firewalld_gateway/">Firewalld 网关配置</a>
           </li>
         
       </ul>
