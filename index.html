@@ -91,18 +91,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>编辑 &#x2F;etc&#x2F;network&#x2F;interfaces</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+        <ol>
+<li><p>编辑 &#x2F;etc&#x2F;network&#x2F;interfaces</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调整 metric 优先级， 数值越小优先级越高</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file describes the network interfaces available on your system</span></span><br><span class="line"><span class="comment"># and how to activate them. For more information, see interfaces(5).</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/network/interfaces.d/*</span><br><span class="line"></span><br><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line"><span class="comment"># The primary network interface</span></span><br><span class="line">allow-hotplug ens18</span><br><span class="line">iface ens18 inet dhcp</span><br><span class="line">metric 10</span><br><span class="line"></span><br><span class="line">allow-hotplug ens19</span><br><span class="line">iface ens19 inet dhcp</span><br><span class="line">metric 100</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启网络服务</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart systemd-networkd</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="comment"># systemctl restart networking</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
-<p>调整 metric 优先级， 数值越小优先级越高</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file describes the network interfaces available on your system</span></span><br><span class="line"><span class="comment"># and how to activate them. For more information, see interfaces(5).</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/network/interfaces.d/*</span><br><span class="line"></span><br><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line"><span class="comment"># The primary network interface</span></span><br><span class="line">allow-hotplug ens18</span><br><span class="line">iface ens18 inet dhcp</span><br><span class="line">metric 10</span><br><span class="line"></span><br><span class="line">allow-hotplug ens19</span><br><span class="line">iface ens19 inet dhcp</span><br><span class="line">metric 100</span><br></pre></td></tr></table></figure>
-
-<p>重启网络服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart systemd-networkd</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="comment"># systemctl restart networking</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/06/debian12_network/" data-id="cm2wd8tif0000zqio6n0r7w64" data-title="Debian12 设置网卡优先级" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/10/06/debian12_network/" data-id="cm2wde2bk000s3jiobke66vts" data-title="Debian12 设置网卡优先级" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -149,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/02/nginx_rtmp_proxy/" data-id="cm2wd8tip0005zqiofos26e01" data-title="nginx创建rtmp反向代理" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/05/02/nginx_rtmp_proxy/" data-id="cm2wde2b800043jioe5y78hre" data-title="nginx创建rtmp反向代理" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -185,16 +188,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>以下命令一键安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash</span><br></pre></td></tr></table></figure>
-
-<p>如果是 ubuntu 系统，默认不root需要把当前用户加入docker组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$&#123;USER&#125;</span></span><br></pre></td></tr></table></figure>
+        <ol>
+<li><p>以下命令一键安装</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果是 ubuntu 系统，默认不root需要把当前用户加入docker组</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$&#123;USER&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/22/linux_install_docker/" data-id="cm2wd8tio0004zqioaf8fa228" data-title="Linux 安装 docker" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2023/03/22/linux_install_docker/" data-id="cm2wde2b700033jiogk1p7jxq" data-title="Linux 安装 docker" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -245,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/15/docker_emby_inter_gpu/" data-id="cm2wd8tik0001zqio812j36hh" data-title="使用Docker安装Emby服务端并启用intel核显" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2022/11/15/docker_emby_inter_gpu/" data-id="cm2wde2b400013jio7ah7a3oh" data-title="使用Docker安装Emby服务端并启用intel核显" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -281,15 +286,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>打开内核转发参数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv4.ip_forward=1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv6.conf.all.forwarding = 1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+        <ol>
+<li><p>打开内核转发参数</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv4.ip_forward=1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv6.conf.all.forwarding = 1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启 nat 转发 firewall</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-masquerade</span><br><span class="line">firewall-cmd --permanent --direct --passthrough ipv4 -t nat -I POSTROUTING -j MASQUERADE</span><br><span class="line"><span class="comment"># 有需要的话，把真正的出口网卡加入 public 区域</span></span><br><span class="line"><span class="comment"># firewall-cmd --add-interface=tun0 --zone=public  --permanent</span></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure></li>
+</ol>
 
-<p>开启 nat 转发 firewall</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-masquerade</span><br><span class="line">firewall-cmd --permanent --direct --passthrough ipv4 -t nat -I POSTROUTING -j MASQUERADE</span><br><span class="line"><span class="comment"># 有需要的话，把真正的出口网卡加入 public 区域</span></span><br><span class="line"><span class="comment"># firewall-cmd --add-interface=tun0 --zone=public  --permanent</span></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/06/firewalld_gateway/" data-id="cm2wd8tin0003zqio17wrflte" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2022/08/06/firewalld_gateway/" data-id="cm2wde2b000003jio4d9p2ss6" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
