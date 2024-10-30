@@ -69,52 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-firewalld_gateway" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/10/31/firewalld_gateway/" class="article-date">
-  <time class="dt-published" datetime="2024-10-30T19:32:29.535Z" itemprop="datePublished">2024-10-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/10/31/firewalld_gateway/">Firewalld 网关配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="打开内核转发参数"><a href="#打开内核转发参数" class="headerlink" title="打开内核转发参数"></a>打开内核转发参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv4.ip_forward=1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv6.conf.all.forwarding = 1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
-
-<h3 id="开启-nat-转发-firewall"><a href="#开启-nat-转发-firewall" class="headerlink" title="开启 nat 转发 firewall"></a>开启 nat 转发 firewall</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-masquerade</span><br><span class="line">firewall-cmd --permanent --direct --passthrough ipv4 -t nat -I POSTROUTING -j MASQUERADE</span><br><span class="line"><span class="comment"># 有需要的话，把真正的出口网卡加入 public 区域</span></span><br><span class="line"><span class="comment"># firewall-cmd --add-interface=tun0 --zone=public  --permanent</span></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/31/firewalld_gateway/" data-id="cm2wa6vf400015aio9jmd8otn" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firewalld/" rel="tag">firewalld</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-debian12_network" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/09/20/debian12_network/" class="article-date">
-  <time class="dt-published" datetime="2024-09-19T16:00:00.000Z" itemprop="datePublished">2024-09-20</time>
+  <time class="dt-published" datetime="2024-09-20T05:08:27.000Z" itemprop="datePublished">2024-09-20</time>
 </a>
     
   </div>
@@ -141,11 +99,96 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/20/debian12_network/" data-id="cm2wasgjt0009siio5zwo2s37" data-title="Debian12 设置网卡优先级" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/09/20/debian12_network/" data-id="cm2wchjkm0000yrio7kldg8hi" data-title="Debian12 设置网卡优先级" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debian/" rel="tag">debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-linux_install_docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/22/linux_install_docker/" class="article-date">
+  <time class="dt-published" datetime="2023-03-21T16:00:00.000Z" itemprop="datePublished">2023-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/22/linux_install_docker/">Linux 安装 docker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="如果是-ubuntu-系统，默认不root需要把当前用户加入docker组"><a href="#如果是-ubuntu-系统，默认不root需要把当前用户加入docker组" class="headerlink" title="如果是 ubuntu 系统，默认不root需要把当前用户加入docker组"></a>如果是 ubuntu 系统，默认不root需要把当前用户加入docker组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$&#123;USER&#125;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/22/linux_install_docker/" data-id="cm2wchjkt0003yrio4v0i6ji2" data-title="Linux 安装 docker" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-firewalld_gateway" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/07/17/firewalld_gateway/" class="article-date">
+  <time class="dt-published" datetime="2022-07-17T12:18:27.000Z" itemprop="datePublished">2022-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/07/17/firewalld_gateway/">Firewalld 网关配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="打开内核转发参数"><a href="#打开内核转发参数" class="headerlink" title="打开内核转发参数"></a>打开内核转发参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv4.ip_forward=1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv6.conf.all.forwarding = 1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启-nat-转发-firewall"><a href="#开启-nat-转发-firewall" class="headerlink" title="开启 nat 转发 firewall"></a>开启 nat 转发 firewall</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-masquerade</span><br><span class="line">firewall-cmd --permanent --direct --passthrough ipv4 -t nat -I POSTROUTING -j MASQUERADE</span><br><span class="line"><span class="comment"># 有需要的话，把真正的出口网卡加入 public 区域</span></span><br><span class="line"><span class="comment"># firewall-cmd --add-interface=tun0 --zone=public  --permanent</span></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/07/17/firewalld_gateway/" data-id="cm2wchjkq0001yrio0kszbjre" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firewalld/" rel="tag">firewalld</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
 
     </footer>
   </div>
@@ -168,7 +211,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/" rel="tag">debian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firewalld/" rel="tag">firewalld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/debian/" rel="tag">debian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firewalld/" rel="tag">firewalld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
     </div>
   </div>
 
@@ -178,7 +221,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/firewalld/" style="font-size: 10px;">firewalld</a> <a href="/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/network/" style="font-size: 10px;">network</a>
+      <a href="/tags/debian/" style="font-size: 10px;">debian</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/firewalld/" style="font-size: 10px;">firewalld</a> <a href="/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/network/" style="font-size: 10px;">network</a>
     </div>
   </div>
 
@@ -187,7 +230,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li></ul>
     </div>
   </div>
 
@@ -200,11 +243,15 @@
       <ul>
         
           <li>
-            <a href="/2024/10/31/firewalld_gateway/">Firewalld 网关配置</a>
+            <a href="/2024/09/20/debian12_network/">Debian12 设置网卡优先级</a>
           </li>
         
           <li>
-            <a href="/2024/09/20/debian12_network/">Debian12 设置网卡优先级</a>
+            <a href="/2023/03/22/linux_install_docker/">Linux 安装 docker</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/17/firewalld_gateway/">Firewalld 网关配置</a>
           </li>
         
       </ul>
