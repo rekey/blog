@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>Rekey&#39;s Blogs</title>
+  <title>nginx创建rtmp反向代理 | Rekey&#39;s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Rekey&#39;s Blogs">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="安装 nginx 和 需要的 nginx module 12sudo apt install nginx libnginx-mod-rtmp -ysudo systemctl enable --now nginx nginx 加入 rtmp 配置块 12345678910111213141516171819# 确认以下配置是否存在，没有不会调用 rtmp 模块include &#x2F;etc&#x2F;nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx创建rtmp反向代理">
+<meta property="og:url" content="http://example.com/2024/10/06/nginx_rtmp_proxy/index.html">
 <meta property="og:site_name" content="Rekey&#39;s Blogs">
+<meta property="og:description" content="安装 nginx 和 需要的 nginx module 12sudo apt install nginx libnginx-mod-rtmp -ysudo systemctl enable --now nginx nginx 加入 rtmp 配置块 12345678910111213141516171819# 确认以下配置是否存在，没有不会调用 rtmp 模块include &#x2F;etc&#x2F;nginx">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-10-06T02:50:03.000Z">
+<meta property="article:modified_time" content="2024-10-30T21:04:31.154Z">
 <meta property="article:author" content="Rekey">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="rtmp">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Rekey's Blogs" type="application/atom+xml">
@@ -67,56 +74,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-debian12_network" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/10/06/debian12_network/" class="article-date">
-  <time class="dt-published" datetime="2024-10-06T02:50:03.000Z" itemprop="datePublished">2024-10-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/10/06/debian12_network/">Debian12 设置网卡优先级</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>编辑 &#x2F;etc&#x2F;network&#x2F;interfaces</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
-
-<p>调整 metric 优先级， 数值越小优先级越高</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file describes the network interfaces available on your system</span></span><br><span class="line"><span class="comment"># and how to activate them. For more information, see interfaces(5).</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/network/interfaces.d/*</span><br><span class="line"></span><br><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line"><span class="comment"># The primary network interface</span></span><br><span class="line">allow-hotplug ens18</span><br><span class="line">iface ens18 inet dhcp</span><br><span class="line">metric 10</span><br><span class="line"></span><br><span class="line">allow-hotplug ens19</span><br><span class="line">iface ens19 inet dhcp</span><br><span class="line">metric 100</span><br></pre></td></tr></table></figure>
-
-<p>重启网络服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart systemd-networkd</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="comment"># systemctl restart networking</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/06/debian12_network/" data-id="cm2wd7eze0000x1iody35hqy1" data-title="Debian12 设置网卡优先级" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debian/" rel="tag">debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-nginx_rtmp_proxy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-nginx_rtmp_proxy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/10/06/nginx_rtmp_proxy/" class="article-date">
   <time class="dt-published" datetime="2024-10-06T02:50:03.000Z" itemprop="datePublished">2024-10-06</time>
@@ -129,8 +87,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/10/06/nginx_rtmp_proxy/">nginx创建rtmp反向代理</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      nginx创建rtmp反向代理
     </h1>
   
 
@@ -158,151 +116,28 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-linux_install_docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/22/linux_install_docker/" class="article-date">
-  <time class="dt-published" datetime="2023-03-21T16:00:00.000Z" itemprop="datePublished">2023-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2024/10/06/debian12_network/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/22/linux_install_docker/">Linux 安装 docker</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>以下命令一键安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash</span><br></pre></td></tr></table></figure>
-
-<p>如果是 ubuntu 系统，默认不root需要把当前用户加入docker组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$&#123;USER&#125;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/22/linux_install_docker/" data-id="cm2wd7ezm0004x1io4vke0vv4" data-title="Linux 安装 docker" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-docker_emby_inter_gpu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/15/docker_emby_inter_gpu/" class="article-date">
-  <time class="dt-published" datetime="2022-11-15T14:15:00.000Z" itemprop="datePublished">2022-11-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          Debian12 设置网卡优先级
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/15/docker_emby_inter_gpu/">使用Docker安装Emby服务端并启用intel核显</a>
-    </h1>
   
+    <a href="/2023/03/22/linux_install_docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Linux 安装 docker</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>拉取官方 docker 镜像</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull emby/embyserver</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改参数并启动容器</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name embyserver \</span><br><span class="line">--volume /home/docker/emby/config:/config \</span><br><span class="line">--volume /mnt/nfs:/mnt \</span><br><span class="line">--net=host \</span><br><span class="line">--device /dev/dri:/dev/dri \</span><br><span class="line">--publish 8096:8096 \</span><br><span class="line">--publish 8920:8920 \</span><br><span class="line">--<span class="built_in">env</span> UID=0 \</span><br><span class="line">--<span class="built_in">env</span> GID=0 \</span><br><span class="line">--<span class="built_in">env</span> GIDLIST=0 \</span><br><span class="line">emby/embyserver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将主机调用核显的路径 /dev/dri 映像到容器内的 /dev/dri ，以供调用核显实现硬解</span></span><br><span class="line"><span class="comment"># UID 、 GID 、 GIDLIST ： 以何种权限运行 emby，这里全设定为 0 , 即以 root 权限运行，可以避免因权限问题导致无法调用核显硬解</span></span><br></pre></td></tr></table></figure></li>
-<li><p>给核显所在的路径授予权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a+x /dev/dri</span><br></pre></td></tr></table></figure></li>
-<li><p>重启 emby 容器</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/15/docker_emby_inter_gpu/" data-id="cm2wd7ezl0003x1ioa0dw062n" data-title="使用Docker安装Emby服务端并启用intel核显" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emby/" rel="tag">emby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gpu/" rel="tag">gpu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intel/" rel="tag">intel</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-firewalld_gateway" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/06/firewalld_gateway/" class="article-date">
-  <time class="dt-published" datetime="2022-08-06T12:04:00.000Z" itemprop="datePublished">2022-08-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/06/firewalld_gateway/">Firewalld 网关配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>打开内核转发参数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv4.ip_forward=1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;net.ipv6.conf.all.forwarding = 1&#x27;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
-
-<p>开启 nat 转发 firewall</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-masquerade</span><br><span class="line">firewall-cmd --permanent --direct --passthrough ipv4 -t nat -I POSTROUTING -j MASQUERADE</span><br><span class="line"><span class="comment"># 有需要的话，把真正的出口网卡加入 public 区域</span></span><br><span class="line"><span class="comment"># firewall-cmd --add-interface=tun0 --zone=public  --permanent</span></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/06/firewalld_gateway/" data-id="cm2wd7ezi0001x1io6ee21del" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firewalld/" rel="tag">firewalld</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gateway/" rel="tag">gateway</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
