@@ -14,7 +14,7 @@
 <meta property="og:description" content="拉取官方 docker 镜像 1docker pull emby&#x2F;embyserver  修改参数并启动容器 123456789101112131415docker run -d \    --name embyserver \    --volume &#x2F;home&#x2F;docker&#x2F;emby&#x2F;config:&#x2F;config \    --volume &#x2F;mnt&#x2F;nfs:&#x2F;mnt \    --net&#x3D;">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-11-15T14:15:00.000Z">
-<meta property="article:modified_time" content="2024-10-30T21:19:21.121Z">
+<meta property="article:modified_time" content="2024-10-30T21:22:10.413Z">
 <meta property="article:author" content="Rekey">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="emby">
@@ -102,9 +102,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull emby/embyserver</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改参数并启动容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name embyserver \</span><br><span class="line">    --volume /home/docker/emby/config:/config \</span><br><span class="line">    --volume /mnt/nfs:/mnt \</span><br><span class="line">    --net=host \</span><br><span class="line">    --device /dev/dri:/dev/dri \</span><br><span class="line">    --publish 8096:8096 \</span><br><span class="line">    --publish 8920:8920 \</span><br><span class="line">    --<span class="built_in">env</span> UID=0 \</span><br><span class="line">    --<span class="built_in">env</span> GID=0 \</span><br><span class="line">    --<span class="built_in">env</span> GIDLIST=0 \</span><br><span class="line">    emby/embyserver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将主机调用核显的路径 /dev/dri 映像到容器内的 /dev/dri ，以供调用核显实现硬解</span></span><br><span class="line"><span class="comment"># UID 、 GID 、 GIDLIST ： 以何种权限运行 emby，这里全设定为 0 , 即以 root 权限运行，可以避免因权限问题导致无法调用核显硬解</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name embyserver \</span><br><span class="line">    --volume /home/docker/emby/config:/config \</span><br><span class="line">    --volume /mnt/nfs:/mnt \</span><br><span class="line">    --net=host \</span><br><span class="line">    --device /dev/dri:/dev/dri \</span><br><span class="line">    --publish 8096:8096 \</span><br><span class="line">    --publish 8920:8920 \</span><br><span class="line">    --<span class="built_in">env</span> UID=0 \</span><br><span class="line">    --<span class="built_in">env</span> GID=0 \</span><br><span class="line">    --<span class="built_in">env</span> GIDLIST=0 \</span><br><span class="line">    emby/embyserver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将主机调用核显的路径 /dev/dri 映像到容器内的 /dev/dri ，以供调用核显实现硬解</span></span><br><span class="line"><span class="comment"># UID 、 GID 、 GIDLIST ： 以何种权限运行 emby，这里全设定为 0 , 即以 root 权限运行，可以避免因权限问题导致无法调用核显硬解</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>给核显所在的路径授予权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a+x /dev/dri</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a+x /dev/dri</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>重启 emby 容器</p>
 </li>
 </ol>
@@ -112,7 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://rekey.github.io/2022/11/15/docker_emby_inter_gpu/" data-id="cm2wdqhhx0003g7iofgxy45l5" data-title="使用Docker安装Emby服务端并启用intel核显" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://rekey.github.io/2022/11/15/docker_emby_inter_gpu/" data-id="cm2wdv89w0004k8io8m7jgike" data-title="使用Docker安装Emby服务端并启用intel核显" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
