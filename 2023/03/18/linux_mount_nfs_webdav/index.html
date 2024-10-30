@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>Archiv: 2024 | Rekey&#39;s Blogs</title>
+  <title>Linux 挂载 webdav nfs | Rekey&#39;s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Rekey&#39;s Blogs">
-<meta property="og:url" content="https://rekey.github.io/archives/2024/index.html">
+  <meta name="description" content="安装依赖包 123# 以下为 centos 安装，ubuntu 切换为 apt 包名不变yum install epel-releaseyum install -y nfs-common nfs-utils davfs2  使用mount临时挂载 123mkdir &#x2F;mnt&#x2F;dav &#x2F;mnt&#x2F;nfsmount -t davfs https:&#x2F;&#x2F;example.com&#x2F;webdav &#x2F;mnt&#x2F;da">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 挂载 webdav nfs">
+<meta property="og:url" content="https://rekey.github.io/2023/03/18/linux_mount_nfs_webdav/index.html">
 <meta property="og:site_name" content="Rekey&#39;s Blogs">
+<meta property="og:description" content="安装依赖包 123# 以下为 centos 安装，ubuntu 切换为 apt 包名不变yum install epel-releaseyum install -y nfs-common nfs-utils davfs2  使用mount临时挂载 123mkdir &#x2F;mnt&#x2F;dav &#x2F;mnt&#x2F;nfsmount -t davfs https:&#x2F;&#x2F;example.com&#x2F;webdav &#x2F;mnt&#x2F;da">
 <meta property="og:locale">
+<meta property="article:published_time" content="2023-03-18T08:36:00.000Z">
+<meta property="article:modified_time" content="2024-10-30T21:30:54.264Z">
 <meta property="article:author" content="Rekey">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="webdav">
+<meta property="article:tag" content="nfs">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Rekey's Blogs" type="application/atom+xml">
@@ -67,58 +74,77 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/10/06/debian12_network/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-10-06T02:50:03.000Z" itemprop="datePublished">Oct 6</time>
+        <section id="main"><article id="post-linux_mount_nfs_webdav" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/18/linux_mount_nfs_webdav/" class="article-date">
+  <time class="dt-published" datetime="2023-03-18T08:36:00.000Z" itemprop="datePublished">2023-03-18</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/10/06/debian12_network/">Debian12 设置网卡优先级</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Linux 挂载 webdav nfs
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/02/nginx_rtmp_proxy/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-02T04:46:00.000Z" itemprop="datePublished">May 2</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/02/nginx_rtmp_proxy/">nginx创建rtmp反向代理</a>
-    </h1>
-  
+        <ol>
+<li><p>安装依赖包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下为 centos 安装，ubuntu 切换为 apt 包名不变</span></span><br><span class="line">yum install epel-release</span><br><span class="line">yum install -y nfs-common nfs-utils davfs2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用mount临时挂载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /mnt/dav /mnt/nfs</span><br><span class="line">mount -t davfs https://example.com/webdav /mnt/dav</span><br><span class="line">mount -t nfs 1.1.1.1:/ /mnt/nfs</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 fstab 自动挂载 编辑 <code>/etc/fstab</code> 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># NFS 从vers=4 开始到 noresvport 是挂载参数，可以根据自身情况调整</span></span><br><span class="line">1.1.1.1:/ /mnt/nfs nfs vers=4,minorversion=0,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev,noresvport 0 0</span><br><span class="line"><span class="comment"># DAV</span></span><br><span class="line">https://example.com/webdav /mnt/dav  davfs rw,_netdev,auto,user,uid=nobody,gid=nobody 0 0</span><br></pre></td></tr></table></figure>
+<p>修改完以后可以使用 <code>mount -a</code> 测试挂载是否正常</p>
+</li>
+<li><p>需要注意，如果 fstab 挂载 webdav 需要设置自动登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/mnt/dav account password&quot;</span> &gt;&gt; /etc/davfs2/secrets</span><br></pre></td></tr></table></figure></li>
+</ol>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://rekey.github.io/2023/03/18/linux_mount_nfs_webdav/" data-id="cm2we5kk20007zyio6vd85c2e" data-title="Linux 挂载 webdav nfs" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nfs/" rel="tag">nfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webdav/" rel="tag">webdav</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/22/linux_install_docker/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Linux 安装 docker
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/15/docker_emby_inter_gpu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">使用Docker安装Emby服务端并启用intel核显</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
