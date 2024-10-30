@@ -105,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://rekey.github.io/2024/10/06/debian12_network/" data-id="cm2wdotn80000d0io3jvo6fl2" data-title="Debian12 设置网卡优先级" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://rekey.github.io/2024/10/06/debian12_network/" data-id="cm2wdqhhv0001g7io8xv404vb" data-title="Debian12 设置网卡优先级" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -160,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://rekey.github.io/2024/05/02/nginx_rtmp_proxy/" data-id="cm2wdotni0007d0ioag073vhf" data-title="nginx创建rtmp反向代理" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://rekey.github.io/2024/05/02/nginx_rtmp_proxy/" data-id="cm2wdqhi00007g7ioh0lzcywy" data-title="nginx创建rtmp反向代理" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -203,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://rekey.github.io/2023/03/22/centos_yum_ffmpeg/" data-id="cm2wdotnd0001d0io6tnd4uaq" data-title="CentOS yum方式安装ffmpeg" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://rekey.github.io/2023/03/22/centos_yum_ffmpeg/" data-id="cm2wdqhhr0000g7ioe2d4co7g" data-title="CentOS yum方式安装ffmpeg" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -250,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://rekey.github.io/2023/03/22/linux_install_docker/" data-id="cm2wdotnh0004d0iohn0v3grn" data-title="Linux 安装 docker" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://rekey.github.io/2023/03/22/linux_install_docker/" data-id="cm2wdqhhz0005g7io1y8wfc53" data-title="Linux 安装 docker" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -288,10 +288,10 @@
       
         <ol>
 <li><p>拉取官方 docker 镜像</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull emby/embyserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull emby/embyserver</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改参数并启动容器</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name embyserver \</span><br><span class="line">--volume /home/docker/emby/config:/config \</span><br><span class="line">--volume /mnt/nfs:/mnt \</span><br><span class="line">--net=host \</span><br><span class="line">--device /dev/dri:/dev/dri \</span><br><span class="line">--publish 8096:8096 \</span><br><span class="line">--publish 8920:8920 \</span><br><span class="line">--<span class="built_in">env</span> UID=0 \</span><br><span class="line">--<span class="built_in">env</span> GID=0 \</span><br><span class="line">--<span class="built_in">env</span> GIDLIST=0 \</span><br><span class="line">emby/embyserver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将主机调用核显的路径 /dev/dri 映像到容器内的 /dev/dri ，以供调用核显实现硬解</span></span><br><span class="line"><span class="comment"># UID 、 GID 、 GIDLIST ： 以何种权限运行 emby，这里全设定为 0 , 即以 root 权限运行，可以避免因权限问题导致无法调用核显硬解</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name embyserver \</span><br><span class="line">    --volume /home/docker/emby/config:/config \</span><br><span class="line">    --volume /mnt/nfs:/mnt \</span><br><span class="line">    --net=host \</span><br><span class="line">    --device /dev/dri:/dev/dri \</span><br><span class="line">    --publish 8096:8096 \</span><br><span class="line">    --publish 8920:8920 \</span><br><span class="line">    --<span class="built_in">env</span> UID=0 \</span><br><span class="line">    --<span class="built_in">env</span> GID=0 \</span><br><span class="line">    --<span class="built_in">env</span> GIDLIST=0 \</span><br><span class="line">    emby/embyserver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将主机调用核显的路径 /dev/dri 映像到容器内的 /dev/dri ，以供调用核显实现硬解</span></span><br><span class="line"><span class="comment"># UID 、 GID 、 GIDLIST ： 以何种权限运行 emby，这里全设定为 0 , 即以 root 权限运行，可以避免因权限问题导致无法调用核显硬解</span></span><br></pre></td></tr></table></figure></li>
 <li><p>给核显所在的路径授予权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a+x /dev/dri</span><br></pre></td></tr></table></figure></li>
 <li><p>重启 emby 容器</p>
@@ -301,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://rekey.github.io/2022/11/15/docker_emby_inter_gpu/" data-id="cm2wdotni0005d0io74ya8ybs" data-title="使用Docker安装Emby服务端并启用intel核显" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://rekey.github.io/2022/11/15/docker_emby_inter_gpu/" data-id="cm2wdqhhx0003g7iofgxy45l5" data-title="使用Docker安装Emby服务端并启用intel核显" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -348,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://rekey.github.io/2022/08/06/firewalld_gateway/" data-id="cm2wdotng0003d0io6iad2ss1" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://rekey.github.io/2022/08/06/firewalld_gateway/" data-id="cm2wdqhhy0004g7ioex058xpx" data-title="Firewalld 网关配置" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
