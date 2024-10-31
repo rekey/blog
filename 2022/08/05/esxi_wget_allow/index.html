@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>firewalld | Rekey&#39;s Blogs</title>
+  <title>关闭 esxi wget 拦截策略 | Rekey&#39;s Blogs</title>
   <meta name="author" content="Rekey">
+  
+  <meta name="description" content="12esxcli network firewall getesxcli network firewall unload">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="关闭 esxi wget 拦截策略"/>
   <meta property="og:site_name" content="Rekey&#39;s Blogs"/>
 
   
@@ -44,25 +46,61 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">firewalld</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-esxi_wget_allow" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2022-08-05T14:37:00.000Z"><a href="/2022/08/05/esxi_wget_allow/">2022-08-05</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">关闭 esxi wget 拦截策略</h1>
+  
 
-
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2022-08-06T12:04:00.000Z"><a href="/2022/08/06/firewalld_gateway/">2022-08-06</a></time>
-            
-              <h1 class="title"><a href="/2022/08/06/firewalld_gateway/">Firewalld 网关配置</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">esxcli network firewall get</span><br><span class="line">esxcli network firewall unload</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/network/">network</a>, <a href="/tags/esxi/">esxi</a>
   </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://rekey.github.io/2022/08/05/esxi_wget_allow/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
