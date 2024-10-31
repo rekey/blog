@@ -45,6 +45,51 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-debian12_build_easytier" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-10-06T02:50:03.000Z"><a href="/2024/10/06/debian12_build_easytier/">2024-10-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/10/06/debian12_build_easytier/">Debian12 编译 EasyTier</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>由于 EasyTier 提供的二进制版本不提供quic连接版本，所以选择自己编译。<br>源仓库没有编译教程，自己摸索编译过程</p>
+</blockquote>
+<ol>
+<li><p>安装 rust 环境，安装提示选择默认就可以了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --proto <span class="string">&#x27;=https&#x27;</span> --tlsv1.2 -sSf https://sh.rustup.rs | sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装编译环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install build-essential</span><br><span class="line"><span class="built_in">sudo</span> apt-get install protobuf-compiler</span><br><span class="line"><span class="built_in">sudo</span> apt install -y musl musl-tools</span><br><span class="line"><span class="comment"># 查看 rust 编译目标</span></span><br><span class="line">rustup target list</span><br><span class="line"><span class="comment"># 添加编译目标</span></span><br><span class="line">rustup target add x86_64-unknown-linux-musl</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/EasyTier/EasyTier</span><br><span class="line"><span class="built_in">cd</span> EasyTier</span><br><span class="line"><span class="comment"># 开始编译，由于我需要 quic，使用 --features full</span></span><br><span class="line">cargo build --release --verbose --target x86_64-unknown-linux-musl --features full</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-debian12_network" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -360,7 +405,9 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/debian/">debian</a><small>1</small></li>
+    <li><a href="/tags/EasyTier/">EasyTier</a><small>1</small></li>
+  
+    <li><a href="/tags/debian/">debian</a><small>2</small></li>
   
     <li><a href="/tags/docker/">docker</a><small>3</small></li>
   
@@ -374,9 +421,9 @@
   
     <li><a href="/tags/intel/">intel</a><small>1</small></li>
   
-    <li><a href="/tags/linux/">linux</a><small>6</small></li>
+    <li><a href="/tags/linux/">linux</a><small>7</small></li>
   
-    <li><a href="/tags/network/">network</a><small>1</small></li>
+    <li><a href="/tags/network/">network</a><small>2</small></li>
   
     <li><a href="/tags/nfs/">nfs</a><small>1</small></li>
   
@@ -394,7 +441,7 @@
   <div class="widget widget-archives">
     <h3 class="title">Archives</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
