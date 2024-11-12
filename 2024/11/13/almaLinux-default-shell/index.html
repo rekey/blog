@@ -3,12 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>esxi | Rekey&#39;s Blogs</title>
+  <title>AlmaLinux 切换默认 shell | Rekey&#39;s Blogs</title>
   <meta name="author" content="Rekey">
+  
+  <meta name="description" content="安装 chsh
+12# AlmaLinux 很奇葩,默认没有chshyum install util-linux-user
+
+切换 shell
+1chsh -s $(which zsh)">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="AlmaLinux 切换默认 shell"/>
   <meta property="og:site_name" content="Rekey&#39;s Blogs"/>
 
   
@@ -44,25 +50,68 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">esxi</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-almaLinux-default-shell" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-11-12T22:15:09.000Z"><a href="/2024/11/13/almaLinux-default-shell/">2024-11-13</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">AlmaLinux 切换默认 shell</h1>
+  
 
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>安装 chsh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># AlmaLinux 很奇葩,默认没有chsh</span></span><br><span class="line">yum install util-linux-user</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换 shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br></pre></td></tr></table></figure></li>
+</ol>
 
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2022-08-05T14:37:00.000Z"><a href="/2022/08/05/esxi_wget_allow/">2022-08-05</a></time>
-            
-              <h1 class="title"><a href="/2022/08/05/esxi_wget_allow/">关闭 esxi wget 拦截策略</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/almalinux/">almalinux</a>, <a href="/tags/linux/">linux</a>, <a href="/tags/shell/">shell</a>
   </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://xifa.fun/2024/11/13/almaLinux-default-shell/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">

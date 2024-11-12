@@ -45,6 +45,45 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-almaLinux-default-shell" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-11-12T22:15:09.000Z"><a href="/2024/11/13/almaLinux-default-shell/">2024-11-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/11/13/almaLinux-default-shell/">AlmaLinux 切换默认 shell</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>安装 chsh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># AlmaLinux 很奇葩,默认没有chsh</span></span><br><span class="line">yum install util-linux-user</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换 shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-get_area_ips" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -411,39 +450,6 @@
 
 
 
-  <article id="post-pve_add_user" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2022-09-03T19:09:00.000Z"><a href="/2022/09/04/pve_add_user/">2022-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2022/09/04/pve_add_user/">PVE添加新用户</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 增加linux用户</span></span><br><span class="line">useradd -s /bin/bash -g root -p password pve</span><br><span class="line"><span class="comment"># 增加pve用户</span></span><br><span class="line">pveum user add pve@pam --expire 0 --password password</span><br><span class="line"><span class="comment"># 给pve用户管理员权限</span></span><br><span class="line">pveum acl modify / --user pve@pam --roles Administrator</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -467,7 +473,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/EasyTier/" style="font-size: 10px;">EasyTier</a> <a href="/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/debian/" style="font-size: 13.33px;">debian</a> <a href="/tags/docker/" style="font-size: 13.33px;">docker</a> <a href="/tags/emby/" style="font-size: 10px;">emby</a> <a href="/tags/esxi/" style="font-size: 10px;">esxi</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firewalld/" style="font-size: 10px;">firewalld</a> <a href="/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/tags/gpu/" style="font-size: 10px;">gpu</a> <a href="/tags/intel/" style="font-size: 10px;">intel</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/network/" style="font-size: 16.67px;">network</a> <a href="/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/pve/" style="font-size: 10px;">pve</a> <a href="/tags/rtmp/" style="font-size: 10px;">rtmp</a> <a href="/tags/webdav/" style="font-size: 10px;">webdav</a>
+    <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/EasyTier/" style="font-size: 10px;">EasyTier</a> <a href="/tags/Firefox/" style="font-size: 10px;">Firefox</a> <a href="/tags/almalinux/" style="font-size: 10px;">almalinux</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/debian/" style="font-size: 13.33px;">debian</a> <a href="/tags/docker/" style="font-size: 13.33px;">docker</a> <a href="/tags/emby/" style="font-size: 10px;">emby</a> <a href="/tags/esxi/" style="font-size: 10px;">esxi</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firewalld/" style="font-size: 10px;">firewalld</a> <a href="/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/tags/gpu/" style="font-size: 10px;">gpu</a> <a href="/tags/intel/" style="font-size: 10px;">intel</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/network/" style="font-size: 16.67px;">network</a> <a href="/tags/nfs/" style="font-size: 10px;">nfs</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/pve/" style="font-size: 10px;">pve</a> <a href="/tags/rtmp/" style="font-size: 10px;">rtmp</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/webdav/" style="font-size: 10px;">webdav</a>
   </div>
 </div>
 
@@ -476,7 +482,7 @@
   <div class="widget widget-archives">
     <h3 class="title">Archives</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
