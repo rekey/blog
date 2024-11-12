@@ -7,8 +7,7 @@
   <meta name="author" content="Rekey">
   
   <meta name="description" content="修改 /etc/ssh/sshd_config
-
-1234567# PermitRootLogin 改成 yes#PermitRootLogin prohibit-passwordPermitRootLogin yes# 取消 PasswordAuthentication yes 的注释# Pass">
+1234567# PermitRootLogin 改成 yes#PermitRootLogin prohibit-passwordPermitRootLogin yes# 取消 PasswordAuthentication yes 的注释# Passw">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -65,12 +64,11 @@
     <div class="e-content entry" itemprop="articleBody">
       
         <ol>
-<li>修改 <code>/etc/ssh/sshd_config</code></li>
-</ol>
+<li><p>修改 <code>/etc/ssh/sshd_config</code></p>
 <figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PermitRootLogin 改成 yes</span></span><br><span class="line"><span class="comment">#PermitRootLogin prohibit-password</span></span><br><span class="line"><span class="attribute">PermitRootLogin</span> yes</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消 PasswordAuthentication yes 的注释</span></span><br><span class="line"><span class="comment"># PasswordAuthentication yes</span></span><br><span class="line"><span class="attribute">PasswordAuthentication</span> yes</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>修改 <code>/etc/ssh/sshd_config.d/50-redhat.conf</code><figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个修改不确定需要,因为我都是用cloud-init,并没有直接安装. 不太确定</span></span><br><span class="line"><span class="comment"># ChallengeResponseAuthentication 改成 yes</span></span><br><span class="line"><span class="comment"># ChallengeResponseAuthentication no</span></span><br><span class="line"><span class="attribute">ChallengeResponseAuthentication</span> yes</span><br></pre></td></tr></table></figure></li>
+</li>
+<li><p>修改 <code>/etc/ssh/sshd_config.d/50-redhat.conf</code></p>
+<figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个修改不确定需要,因为我都是用cloud-init,并没有直接安装. 不太确定</span></span><br><span class="line"><span class="comment"># ChallengeResponseAuthentication 改成 yes</span></span><br><span class="line"><span class="comment"># ChallengeResponseAuthentication no</span></span><br><span class="line"><span class="attribute">ChallengeResponseAuthentication</span> yes</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
