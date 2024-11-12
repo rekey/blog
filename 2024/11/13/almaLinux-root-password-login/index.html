@@ -3,12 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2023 | Rekey&#39;s Blogs</title>
+  <title>AlmaLinux 设置 Root ssh 密码登录 | Rekey&#39;s Blogs</title>
   <meta name="author" content="Rekey">
+  
+  <meta name="description" content="修改 /etc/ssh/sshd_config
+
+1234567# PermitRootLogin 改成 yes#PermitRootLogin prohibit-passwordPermitRootLogin yes# 取消 PasswordAuthentication yes 的注释# Pass">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="AlmaLinux 设置 Root ssh 密码登录"/>
   <meta property="og:site_name" content="Rekey&#39;s Blogs"/>
 
   
@@ -44,49 +48,69 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2023</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-almaLinux-root-password-login" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-11-12T22:18:23.000Z"><a href="/2024/11/13/almaLinux-root-password-login/">2024-11-13</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">AlmaLinux 设置 Root ssh 密码登录</h1>
+  
 
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <ol>
+<li>修改 <code>/etc/ssh/sshd_config</code></li>
+</ol>
+<figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># PermitRootLogin 改成 yes</span></span><br><span class="line"><span class="comment">#PermitRootLogin prohibit-password</span></span><br><span class="line"><span class="attribute">PermitRootLogin</span> yes</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消 PasswordAuthentication yes 的注释</span></span><br><span class="line"><span class="comment"># PasswordAuthentication yes</span></span><br><span class="line"><span class="attribute">PasswordAuthentication</span> yes</span><br></pre></td></tr></table></figure>
 
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2023-03-21T16:00:00.000Z"><a href="/2023/03/22/centos_yum_ffmpeg/">2023-03-22</a></time>
-            
-              <h1 class="title"><a href="/2023/03/22/centos_yum_ffmpeg/">CentOS yum方式安装ffmpeg</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2023-03-21T16:00:00.000Z"><a href="/2023/03/22/linux_install_docker/">2023-03-22</a></time>
-            
-              <h1 class="title"><a href="/2023/03/22/linux_install_docker/">Linux 安装 docker</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2023-03-18T08:36:00.000Z"><a href="/2023/03/18/linux_mount_nfs_webdav/">2023-03-18</a></time>
-            
-              <h1 class="title"><a href="/2023/03/18/linux_mount_nfs_webdav/">Linux 挂载 webdav nfs</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+<ol start="2">
+<li>修改 <code>/etc/ssh/sshd_config.d/50-redhat.conf</code><figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个修改不确定需要,因为我都是用cloud-init,并没有直接安装. 不太确定</span></span><br><span class="line"><span class="comment"># ChallengeResponseAuthentication 改成 yes</span></span><br><span class="line"><span class="comment"># ChallengeResponseAuthentication no</span></span><br><span class="line"><span class="attribute">ChallengeResponseAuthentication</span> yes</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/almalinux/">almalinux</a>, <a href="/tags/linux/">linux</a>, <a href="/tags/ssh/">ssh</a>
   </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://xifa.fun/2024/11/13/almaLinux-root-password-login/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
